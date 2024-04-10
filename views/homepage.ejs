@@ -10,6 +10,10 @@
       href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <link rel="stylesheet" href="/styles.css" />
   </head>
 
@@ -173,6 +177,13 @@
             <div class="pet-card-text">
               <h3>
                 <span class="pet-name"> <%= pet.name %> </span>
+                <span
+                  data-id="<%=pet._id%>"
+                  onclick="openOverlay(this)"
+                  tabindex="7"
+                  class="material-symbols-outlined"
+                  >mail</span
+                >
               </h3>
               <p class="pet-description"><%= pet.description %></p>
               <p class="pet-age">
@@ -205,18 +216,66 @@
       <p>&copy; 2023 Fake Adoption Center. All rights reserved.</p>
     </footer>
 
-    <div class="form-overlay">
+    <div class="form-overlay" style="display: none">
       <div class="form-overlay-inner">
         <form class="form-content">
-          <input type="text" autocomplete="off" class="form-field" id="name" />
+          <input
+            type="text"
+            placeholder="Name"
+            autocomplete="off"
+            class="form-field"
+            id="name"
+     
+          />
+          <input
+            type="text"
+            placeholder="Email"
+            autocomplete="off"
+            class="form-field"
+            id="email"
+          />
+          <input
+            type="text"
+            placeholder="What is the word for a baby dog?"
+            autocomplete="off"
+            class="form-field"
+            id="secret"
+          />
+          <textarea
+            id="comment"
+            class="form-field"
+            placeholder="Comment (optional)"
+          ></textarea>
+          <div class="justify-right">
+            <button class="our-btn">Submit</button>
+          </div>
+          <div onclick="closeOverlay()" class="close-form-overlay">X</div>
         </form>
         <div class="form-photo">
-          <p>Thank you for your interest in Such and Such pet.</p>
+          <img src="http://www.robohash.org/puppy" alt="" />
+          <p>
+            Thank you for your interest in <br /><strong>Such and Such</strong>.
+          </p>
         </div>
-        <div class="thank-you"></div>
+        <div class="thank-you">
+          <p>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="currentColor"
+              class="bi bi-check-circle-fill"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"
+              />
+            </svg>
+            Thank you for contacting us!
+          </p>
+        </div>
       </div>
     </div>
-
     <script src="js/main.js"></script>
   </body>
 </html>
